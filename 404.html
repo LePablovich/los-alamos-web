@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="img/LosAlamos_Interactive.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official site of Los Alamos Interactive. Creators of Dunguns and upcoming indie games.">
+    <meta property="og:title" content="Los Alamos Interactive - Indie Games">
+    <meta property="og:description" content="Download Dunguns for free. Survival roguelike made in 12 days.">
+    <meta property="og:image" content="https://losalamosinteractive.netlify.app/img/LosAlamos_Preview.png"> <meta property="og:url" content="https://losalamosinteractive.netlify.app/">
+    <meta name="twitter:card" content="summary_large_image">
     <title>404 - Signal Lost | Los Alamos Interactive</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -88,6 +93,13 @@
 
 <body class="flex items-center justify-center min-h-screen relative font-rajdhani">
 
+    <div class="absolute top-6 right-6 z-50">
+        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-white hover:text-green-400 transition-colors px-3 py-2 border border-white/20 rounded-full hover:border-green-400 bg-black/50 backdrop-blur-sm">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span id="lang-display" class="font-bold font-mono text-xs">EN</span>
+        </button>
+    </div>
+
     <div class="bg-noise"></div>
 
     <div class="text-center relative z-10 p-4">
@@ -99,17 +111,23 @@
             404
         </h1>
 
-        <h2 class="text-3xl md:text-4xl font-bold text-green-500 mb-6 font-orbitron tracking-widest">
+        <h2 class="text-3xl md:text-4xl font-bold text-green-500 mb-6 font-orbitron tracking-widest"
+            data-lang-key="404_title"
+            data-en="SECTOR NOT FOUND"
+            data-es="SECTOR NO ENCONTRADO">
             SECTOR NOT FOUND
         </h2>
 
-        <p class="text-gray-400 max-w-md mx-auto mb-10 text-lg">
+        <p class="text-gray-400 max-w-md mx-auto mb-10 text-lg"
+           data-lang-key="404_desc"
+           data-en="The signal has been lost in the void. The page you are looking for has been deleted, moved, or never existed in this dimension."
+           data-es="La señal se ha perdido en el vacío. La página que buscas ha sido eliminada, movida o nunca existió en esta dimensión.">
             The signal has been lost in the void. The page you are looking for has been deleted, moved, or never existed in this dimension.
         </p>
 
         <a href="/" class="inline-flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-black font-bold rounded-lg transition-transform hover:scale-105 group">
             <i data-lucide="arrow-left" class="group-hover:-translate-x-1 transition-transform"></i>
-            RETURN TO BASE
+            <span data-lang-key="404_btn" data-en="RETURN TO BASE" data-es="VOLVER A LA BASE">RETURN TO BASE</span>
         </a>
     </div>
 
@@ -119,6 +137,28 @@
 
     <script>
         lucide.createIcons();
+
+        // ESTADO DE IDIOMA (Por defecto Inglés 'en')
+        let currentLang = 'en';
+
+        // SISTEMA DE TRADUCCIÓN SIMPLIFICADO
+        function toggleLanguage() {
+            // Alternar idioma
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            
+            // 1. Actualizar indicador del botón (ES / EN)
+            const langDisplay = document.getElementById('lang-display');
+            langDisplay.innerText = currentLang.toUpperCase();
+
+            // 2. Traducir textos
+            const textElements = document.querySelectorAll('[data-lang-key]');
+            textElements.forEach(el => {
+                const translation = el.getAttribute(`data-${currentLang}`);
+                if (translation) {
+                    el.innerText = translation;
+                }
+            });
+        }
     </script>
 </body>
 </html>
