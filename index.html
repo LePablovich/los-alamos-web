@@ -101,8 +101,10 @@
                         LOS ALAMOS INTERACTIVE
                     </span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-8">
+
+                <div class="flex items-center gap-4">
+                    
+                    <div class="hidden md:flex items-center gap-6">
                         <button onclick="switchView('hub')" class="text-white hover:text-green-400 transition-colors px-3 py-2 rounded-md text-sm font-medium" 
                             data-lang-key="nav_home" data-en="HOME" data-es="INICIO">HOME</button>
                         
@@ -113,12 +115,13 @@
                             data-lang-key="nav_community" data-en="COMMUNITY" data-es="COMUNIDAD">
                             COMMUNITY
                         </button>
+                    </div>
 
-                        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-white hover:text-green-400 transition-colors px-3 py-2 border border-white/20 rounded-full hover:border-green-400">
-                            <i data-lucide="globe" class="w-4 h-4"></i>
-                            <span id="lang-display" class="font-bold font-mono text-xs">EN</span>
-                        </button>
-                        </div>
+                    <button onclick="toggleLanguage()" class="flex items-center gap-2 text-white hover:text-green-400 transition-colors px-3 py-2 border border-white/20 rounded-full hover:border-green-400 bg-black/50">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <span id="lang-display" class="font-bold font-mono text-xs">EN</span>
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -364,14 +367,14 @@
                         <div class="aspect-video bg-gray-800 rounded-lg overflow-hidden relative group cursor-pointer">
                             <img src="img/Game_SS1_img.png" 
                                  data-img-en="img/Game_SS1_img.png"
-                                 data-img-es="img/Game_SS1_ES_img.png"
+                                 data-img-es="img/Game_SS1_img.png"
                                  class="lang-img-tag w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="aspect-video bg-gray-800 rounded-lg overflow-hidden relative group cursor-pointer">
                             <img src="img/Game_SS2_img.png" 
                                  data-img-en="img/Game_SS2_img.png"
-                                 data-img-es="img/Game_SS2_ES_img.png"
+                                 data-img-es="img/Game_SS2_img.png"
                                  class="lang-img-tag w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors"></div>
                         </div>
@@ -413,7 +416,6 @@
                                 <i data-lucide="monitor" class="w-5 h-5"></i> 
                                 <span data-lang-key="dl_win" data-en="DOWNLOAD FOR WINDOWS" data-es="DESCARGAR WINDOWS">DOWNLOAD FOR WINDOWS</span>
                             </a>
-                        
                             <a href="https://los-alamos-interactive.itch.io/dunguns" target="_blank"
                                class="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white font-bold rounded-lg flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] cursor-pointer no-underline">
                                 <i data-lucide="cpu" class="w-5 h-5"></i> 
@@ -584,6 +586,4 @@
         updateTimeAgo();
     </script>
 </body>
-
 </html>
-
